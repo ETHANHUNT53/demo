@@ -3,11 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
- 
+
     <groupId>task05-group</groupId>
     <artifactId>task05</artifactId>
     <version>1.0.0</version>
- 
+
     <properties>
         <maven-shade-plugin.version>3.5.2</maven-shade-plugin.version>
         <syndicate.java.plugin.version>1.11.1</syndicate.java.plugin.version>
@@ -17,7 +17,7 @@
         <src.dir>jsrc/main/java</src.dir>
         <resources.dir>jsrc/main/resources</resources.dir>
     </properties>
- 
+
     <dependencies>
         <!-- AWS dependencies-->
         <dependency>
@@ -37,7 +37,7 @@
             <artifactId>gson</artifactId>
             <version>2.11.0</version>
         </dependency>
- 
+
         <!-- AWS SDK for Java -->
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
@@ -77,7 +77,7 @@
             <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>
- 
+
         <!-- AWS Lambda Java core library -->
         <dependency>
             <groupId>com.amazonaws</groupId>
@@ -90,7 +90,7 @@
             <version>3.11.0</version>
         </dependency>
     </dependencies>
- 
+
     <build>
         <sourceDirectory>${src.dir}</sourceDirectory>
         <resources>
@@ -149,5 +149,5 @@
             </plugin>
         </plugins>
     </build>
- 
+
 </project>

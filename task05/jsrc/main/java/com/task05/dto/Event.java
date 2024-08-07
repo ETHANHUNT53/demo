@@ -1,9 +1,9 @@
 package com.task05.dto;
- 
+
 import lombok.*;
- 
+
 import java.util.Map;
- 
+
 @Builder
 @Setter
 @Getter
