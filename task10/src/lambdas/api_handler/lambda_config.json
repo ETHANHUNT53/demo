@@ -10,8 +10,12 @@
   "lambda_path": "lambdas\\api_handler",
   "dependencies": [],
   "event_sources": [],
-  "env_variables": {},
-  "publish_version": true,
+  "env_variables": {
+    "RESERVATIONS": "${reservations_table}",
+    "TABLES": "${tables_table}",
+    "USER_POOL": "${booking_userpool}"
+  },
+  "publish_version": false,
   "alias": "${lambdas_alias_name}",
   "url_config": {},
   "ephemeral_storage": 512,
