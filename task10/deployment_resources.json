@@ -64,12 +64,7 @@
   "task10_api": {
     "resource_type": "api_gateway",
     "deploy_stage": "api",
-    "dependencies": [
-      {
-        "resource_name": "api_handler",
-        "resource_type": "lambda"
-      }
-    ],
+    "dependencies": [],
     "resources": {
       "/signup": {
         "enable_cors": false,
@@ -77,7 +72,6 @@
           "authorization_type": "NONE",
           "integration_type": "lambda",
           "lambda_name": "api_handler",
-          "enable_proxy": true,
           "api_key_required": false,
           "method_request_parameters": {},
           "integration_request_body_template": {},
@@ -92,7 +86,6 @@
           "authorization_type": "NONE",
           "integration_type": "lambda",
           "lambda_name": "api_handler",
-          "enable_proxy": true,
           "api_key_required": false,
           "method_request_parameters": {},
           "integration_request_body_template": {},
@@ -104,10 +97,9 @@
       "/tables": {
         "enable_cors": false,
         "POST": {
-          "authorization_type": "task10_api_authorizer",
+          "authorization_type": "NONE",
           "integration_type": "lambda",
           "lambda_name": "api_handler",
-          "enable_proxy": true,
           "api_key_required": false,
           "method_request_parameters": {},
           "integration_request_body_template": {},
@@ -116,11 +108,10 @@
           "default_error_pattern": true
         },
         "GET": {
-          "authorization_type": "task10_api_authorizer",
+          "authorization_type": "NONE",
           "integration_type": "lambda",
           "lambda_name": "api_handler",
           "api_key_required": false,
-          "enable_proxy": true,
           "method_request_parameters": {},
           "integration_request_body_template": {},
           "responses": [],
@@ -130,11 +121,10 @@
       },
       "/reservations": {
         "enable_cors": false,
-        "GET": {
-          "authorization_type": "task10_api_authorizer",
+        "POST": {
+          "authorization_type": "NONE",
           "integration_type": "lambda",
           "lambda_name": "api_handler",
-          "enable_proxy": true,
           "api_key_required": false,
           "method_request_parameters": {},
           "integration_request_body_template": {},
@@ -142,26 +132,10 @@
           "integration_responses": [],
           "default_error_pattern": true
         },
-        "POST": {
-          "authorization_type": "task10_api_authorizer",
-          "integration_type": "lambda",
-          "lambda_name": "api_handler",
-          "enable_proxy": true,
-          "api_key_required": false,
-          "method_request_parameters": {},
-          "integration_request_body_template": {},
-          "responses": [],
-          "integration_responses": [],
-          "default_error_pattern": true
-        }
-      },
-      "/tables/{tableId}": {
-        "enable_cors": false,
         "GET": {
-          "authorization_type": "task10_api_authorizer",
+          "authorization_type": "NONE",
           "integration_type": "lambda",
           "lambda_name": "api_handler",
-          "enable_proxy": true,
           "api_key_required": false,
           "method_request_parameters": {},
           "integration_request_body_template": {},
@@ -169,16 +143,6 @@
           "integration_responses": [],
           "default_error_pattern": true
         }
-      }
-    },
-    "authorizers": {
-      "task10_api_authorizer": {
-        "type": "COGNITO_USER_POOLS",
-        "identity_source": "method.request.header.Authorization",
-        "ttl": 300,
-        "user_pools": [
-          "simple-booking-userpool"
-        ]
       }
     }
   },
@@ -201,4 +165,3 @@
     "autoscaling": []
   }
 }
-
